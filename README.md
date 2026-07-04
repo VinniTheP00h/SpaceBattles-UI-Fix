@@ -2,6 +2,7 @@
 CSS Userstyles fixing SpaceBattles UI
 
 # Usage
+### New UI Fix
 0. Switch SpaceBattles to the Classic Dark theme.
 
 Then either:
@@ -14,7 +15,7 @@ Then either:
 2. Download spacebattles-23-ui-fix.css.
 3. Import the downloaded file to that extension, or create a new UserStyle and copy file's contents to it.
 
-# Old UI Fix
+### Old UI Fix
 Currently the recreated old theme has a number of minor issues, such as miscolored buttons. They are fixed in spacebattles-old-ui-fix.css, usage is same as described above.
 
 # Update policy
