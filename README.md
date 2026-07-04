@@ -14,5 +14,8 @@ Then either:
 2. Download spacebattles-23-ui-fix.css.
 3. Import the downloaded file to that extension, or create a new UserStyle and copy file's contents to it.
 
+# Old UI Fix
+Currently the recreated old theme has a number of minor issues, such as miscolored buttons. They are fixed in spacebattles-old-ui-fix.css, usage is same as described above.
+
 # Update policy
 I don't guarantee any updates to this repo should it break or a potential improvement be found. However you are welcome to modify this code in any way you see fit
