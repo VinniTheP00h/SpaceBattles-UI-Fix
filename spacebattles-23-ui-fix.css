@@ -1,0 +1,543 @@
+/* ==UserStyle==
+@name           SpaceBattles XF2.3 UI fix
+@namespace      VinniTheP00h
+@version        1.0.1
+@description    Fixes SpaceBattles' new UI, making it similar to the old design. Use it over the "Classic Dark" theme.
+@author         VinniTheP00h
+@license        MIT
+==/UserStyle== */
+@-moz-document url-prefix("https://forums.spacebattles.com/") {
+    /* ---=== Variables ===--- */
+    /* Variables added here have prefix --sbc, standing for SpaceBattles Classic, to distinguish them from the original --xf variables */
+    :root {
+        --sbc-headerColor: #415c87;
+        --sbc-sidebarWidth: 250px;
+
+        /* buttons
+    primary */
+        --xf-buttonPrimaryBg--h: 224;
+        --xf-buttonPrimaryBg--s: 7.2%;
+        --xf-buttonPrimaryBg--l: 40.6%;
+        --xf-buttonPrimaryBg--a: 1;
+        --xf-buttonPrimaryBg: 224, 7.2%, 40.6%, 1;
+
+        /* secondary */
+        --xf-buttonBg--h: 0;
+        --xf-buttonBg--s: 0%;
+        --xf-buttonBg--l: 75%;
+        --xf-buttonBg--a: 0.75;
+        --xf-buttonBg: 0, 0%, 74.1%, 0.75;
+
+        /* Selected item */
+        --xf-selectedItemBgColor: 216.9, 35%, 39.2%, 1;
+        --xf-selectedItemBorderColor: 216.9, 35%, 39.2%, 1;
+
+        /* Editor background */
+        --xf-editorBg: 223.6, 22.4%, 19.2%, 1;
+        --xf-editorFocusBg: 222.6, 22.6%, 26.9%, 1;
+
+        /* Post background color */
+        --xf-contentBg: 222, 29%, 14%, 1;
+
+        /* Black page background */
+        --xf-pageBg--h: 0;
+        --xf-pageBg--s: 0%;
+        --xf-pageBg--l: 0%;
+        --xf-pageBg--a: 1;
+        --xf-pageBg: 0, 0%, 0%, 1;
+
+        /* Muted colors */
+        --xf-textColorMuted--h: 0;
+        --xf-textColorMuted--s: 0;
+        --xf-textColorMuted--l: 54.9%;
+        --xf-textColorMuted--a: 1;
+        --xf-textColorMuted: 0, 0%, 54.9%, 1;
+
+        /* Text color */
+        --xf-textColor: 0, 0%, 80%, 1;
+    }
+
+    /* ---=== Main page ===--- */
+    /* --- General --- */
+    /* Page width and paddings */
+    .p-body-inner {
+        max-width: 100%;
+    }
+    @media (min-width: 1161px) {
+        .p-body-main--withSidebar {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    /* Resizable forums' section to adjust sidebar size.
+Decide on a good value (eg 300px) and remove this section and the varable, and replace --sbc-sidebarWidth in the sidebar section with that value */
+    @media (min-width: 1161px) {
+        .p-body-main--withSidebar .p-body-content {
+            width: calc(100% - var(--sbc-sidebarWidth));
+        }
+    }
+
+    /* --- Subforums --- */
+    /* Blocks' borders */
+    .block--category .block-container {
+        background-color: hsla(var(--xf-contentBg));
+        border-width: 1px;
+        border-style: solid;
+        border-color: hsla(var(--xf-borderColor));
+        border-radius: 4px;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+
+    /* Gap between blocks */
+    .block.block--category.collapsible-nodes {
+        margin-bottom: 15px;
+    }
+
+    /* Headers color */
+    .block--category .block-container .block-header,
+    .block--category .block-container .block-header--collapsible {
+        background-color: var(--sbc-headerColor);
+        padding-top: 4px;
+        padding-bottom: 8px;
+    }
+
+    /* Bring back dividers between subforums */
+    .block--category .block-container .node {
+        border-width: 1px;
+        border-style: solid;
+        border-top-color: hsla(var(--xf-borderColor));
+        margin-top: 0px!important;
+        border-radius: 4px;
+    }
+
+    /* Background to subforum groups */
+    .block-body.block-body--collapsible.is-active {
+        background: hsla(var(--xf-contentBg));
+    }
+
+    /* --- Creative Library --- */
+    /* Untypical layout, which means it has to get a number of special considerations) */
+    /* Color the description block in the Library */
+    .block--library .block-container .block-header-wrapper,
+    .block--library .block-container .block-header-wrapper .block-header {
+        padding-bottom: 0px!important;
+    }
+    .block--library .block-desc {
+        background-color: var(--sbc-headerColor);
+        margin-left: 0px;
+        padding-left: 12px;
+        padding-bottom: 8px;
+        font-size: 0.75rem;
+        margin-bottom: 0px;
+    }
+
+    /* Optional: remove the gap between "Discover Stories" and "Discover Quests" sections */
+    .library--shelves {
+        gap: 0;
+    }
+
+    /* Handle the subforum buttons */
+    /*Just in case there is a third item in the future*/
+    /*.node--shelf:not(:hover) {
+  border-right-color: hsla(var(--xf-borderColor))!important;
+  border-right-width: 1px!important;
+  border-left-color: hsla(var(--xf-borderColor))!important;
+  border-left-width: 1px!important;
+}*/
+    /*
+.node--shelf:first-child:not(:hover) {
+    border-left-width: 0px!important;
+  border-right-color: hsla(var(--xf-borderColor))!important;
+  border-right-width: 1px!important;
+}
+
+.node--shelf:last-child:not(:hover) {
+    border-right-width: 0px!important;
+  border-left-color: hsla(var(--xf-borderColor))!important;
+  border-left-width: 1px!important;
+} */
+    /* Cleaner, but less legible Library look without internal borders */
+    .node--shelf:not(:hover) {
+        border-width: 0px!important;
+    }
+
+    /* --- Sidebar --- */
+    /*Background and borders */
+    .p-body-sidebar {
+        background-color: hsla(var(--xf-contentBg));
+        border-width: 1px;
+        border-style: solid;
+        border-color: hsla(var(--xf-borderColor));
+        border-radius: 4px;
+    }
+
+    /* Sidebar paddings*/
+    .p-body-sidebar {
+        padding-left: 10px;
+        padding-right: 10px;
+        max-width: var(--sbc-sidebarWidth);
+    }
+
+
+    /* ---=== Forum page ===--- */
+    /* Breadcrumbs background and border */
+    .breadcrumbs-wrapper:has(.breadcrumbs-wrapper--left *) {
+        background: hsla(var(--xf-contentBg));
+        border-color: hsla(var(--xf-borderColor));
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+        padding: 8px 10px;
+    }
+
+    /* Filter borders */
+    .filterBar-filters a {
+        border-color: hsla(var(--xf-borderColor));
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+    }
+
+    /* Separators' colors */
+    .block-filterBar {
+        background: var(--sbc-headerColor);
+        border-color: hsla(var(--xf-borderColor));
+        border-width: 1px;
+        border-style: solid;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .block-container-parent {
+        background: hsla(var(--xf-contentBg));
+        border-color: hsla(var(--xf-borderColor));
+        border-width: 1px;
+        border-style: solid;
+    }
+    .block.block--sticky-threads,
+    .structItemContainer-group.structItemContainer-group--sticky-block,
+    .block-container-parent .block-body .structItemContainer {
+        background: #304565!important;
+        border-radius: 0;
+    }
+
+    /* Hover color */
+    :root[data-color-scheme="dark"] .p-pageWrapper.retro .structItem:hover {
+        background: none;
+    }
+
+    /* ---=== Threads ===--- */
+    /* --- Messages --- */
+    /* Borders, background */
+    .message-inner {
+        background: hsla(var(--xf-contentBg));
+        border-width: 1px;
+        border-style: solid;
+        border-color: hsla(var(--xf-borderColor));
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+    }
+
+    /* Font */
+    .message-body {
+        font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', sans-serif;
+    }
+
+    /* Message gap */
+    .block.block--messages .block-container .message + .message {
+        margin-top: 8px;
+    }
+
+    /* Quote header colors */
+    .bbCodeBlock-title {
+        background: var(--sbc-headerColor);
+        color: white;
+    }
+
+    .bbCodeBlock--quote {
+        background: black;
+    }
+
+    /* Remove quote left border */
+    .bbCodeBlock {
+        border-left: 1px solid hsla(var(--xf-borderColorHeavy));
+    }
+
+    /* Remove shadow and double border */
+    .message-cell--main {
+        box-shadow: 0px 0px 0px red!important;
+    }
+    :root[data-color-scheme="dark"] .block--messages .message .message-cell.message-cell--main,
+    :root[data-color-scheme="dark"] .js-quickReply form .block-container .message-cell.message-cell--main {
+        border-width: 0;
+    }
+
+    /* Font adjustments (make it a bit smaller) */
+    .bbWrapper,
+    .message-body,
+    .message-body .bbCodeBlock.bbCodeBlock-content,
+    .fr-box.fr-basic textarea.input,
+    .fr-box.fr-basic .fr-element,
+    .bbCodePreview-content,
+    .block--messages .message.message--post.hasThreadmark .message-cell--threadmark-header,
+    .block--messages .message.message--post.hasThreadmark .message-cell.message-cell--threadmark-footer,
+    .message-name {
+        font-size: inherit;
+    }
+
+    /* Neon green links */
+    /* I made the like on the right green, to bring it in line with other active elements, but left the one on the left gray as it was */
+    :root[data-color-scheme="dark"] .actionBar-set.actionBar-set--external a,
+    :root[data-color-scheme="dark"] .actionBar .sv-rating-type-icon {
+        color: hsla(var(--xf-primaryLinkColor)) !important;
+    }
+
+    /* Like border */
+    .sv-rating-bar:not(.reactions-gifted) ul.sv-rating-bar__ratings {
+        border: 1px solid hsla(var(--xf-borderColor));
+        border-radius: 4px;
+        padding: 0px;
+    }
+
+    ul.sv-rating-bar__ratings .sv-rating__count {
+        background: black;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    /* Grey text in expandable quotes' buttons */
+    .bbCodeBlock .bbCodeBlock-shrinkLink a,
+    .bbCodeBlock .bbCodeBlock-expandLink a {
+        color: inherit;
+    }
+
+    /* Message attribution/body separator */
+    .message-attribution.message-attribution--split,
+    .message-content .message-attribution {
+        border-bottom-width: 1px;
+    }
+
+    /* Awarded posts */
+    /* Remove background */
+    @media (min-width: 768px) {
+        :root[data-color-scheme="dark"] .retro .block--messages .message.nf-gifted .message-cell--main,
+        :root[data-color-scheme="dark"] .retro .block--messages .message.message--post.hasThreadmark.nf-gifted .message-cell--main {
+            background: hsla(var(--xf-contentBg));
+            box-shadow: none!important;
+        }
+    }
+
+    /* Restore gap */
+    .block--messages .message.message--post.hasThreadmark {
+        margin-top: 8px;
+    }
+
+    /* --- User profile --- */
+    /* User background and borders */
+    .message-user {
+        background: black;
+        border: 1px solid hsla(var(--xf-borderColor));
+    }
+
+    .message-userDetails,
+    .message-userExtras {
+        background-color: var(--sbc-headerColor);
+        padding: 5px 10px;
+        margin-top: 0
+    }
+
+    .message-cell.message-cell--user {
+        padding-left: 12px;
+    }
+
+    .avatar {
+        border-radius: 0;
+    }
+
+    /* User title font size */
+    .message-userTitle {
+        font-size: 0.750rem;
+    }
+
+    /* Turn message arrow right > */
+    :root[data-color-scheme="dark"] .retro .message-userArrow {
+        transform: rotate(180deg);
+        right: 1px;
+        border-right-color: hsla(var(--xf-borderColor));
+    }
+
+    .message-userArrow::after {
+        border-right-color: black;
+    }
+
+    /* --- Threadmarks etc --- */
+    /* Polls, TOC - borders and background */
+    .block-container {
+        border-width: 1px;
+        border-style: solid;
+        border-color: hsla(var(--xf-borderColor));
+    }
+    .block-header {
+        background: var(--sbc-headerColor);
+    }
+    :root[data-color-scheme="dark"] [data-xf-init*="poll-block"] .block-footer {
+        background-color: black!important;
+    }
+
+    /* TOC accent and link colors */
+    .block-tabHeader .tabs-tab.is-active,
+    .block-tabHeader .tabs > input:checked + .tabs-tab--radio {
+        border-color: hsla(var(--xf-primaryLinkColor));
+    }
+    .structItem:not(.is-unread) .structItem-cell--main .structItem-title a,
+    :root[data-color-scheme="dark"] .structItem-cell--latest a {
+        color: hsla(var(--xf-primaryLinkColor));
+    }
+    [data-xf-init*="poll-block"] .block-header {
+        font-size: 1rem;
+        color: white;
+    }
+
+
+    /* TOC/poll footer/header color */
+    :root[data-color-scheme="dark"] [data-xf-init*="poll-block"] .block-footer,
+    .block-tabHeader {
+        background-color: hsla(var(--xf-contentBg));
+    }
+
+    /* Threadmarked post colors and borders */
+    .block--messages .message.message--post.hasThreadmark .message-cell--threadmark-header,
+    .block--messages .message.message--post.hasThreadmark .message-cell.message-cell--threadmark-footer {
+        background-color: hsla(var(--xf-contentBg));
+    }
+    .block--messages .message.message--post.hasThreadmark {
+        border-width: 1px;
+    }
+
+    /* Threadmark navigation colors */
+    .threadmark-control,
+    .threadmark-arrow,
+    :root[data-color-scheme="dark"] .block--messages .message-attribution-opposite--list2 a {
+        background: var(--sbc-headerColor);
+        border-radius: 5px;
+        color: hsla(var(--xf-textColorDimmed));
+    }
+
+    /* Threadmark author position */
+    .message-cell.message-cell--threadmark-footer {
+        padding-left: 10px;
+    }
+
+    /* Green New */
+    .structItem-title .message-newIndicator,
+    .message-newIndicator,
+    a.message-newIndicator {
+        background: hsla(var(--xf-primaryLinkColor));
+        color: black;
+    }
+
+    /* Tag borders */
+    .js-tagList .tagItem {
+        border-width: 1px;
+        border-color: hsla(var(--xf-borderColor));
+    }
+
+    /* Threadmarks dropdown(s) */
+    .blockLink {
+        color: hsla(var(--xf-linkColor));
+    }
+
+    /* Chapter threadmark color */
+    .block--messages .message.message--post.hasThreadmark .message-cell--threadmark-header .primary .threadmarkLabel.threadmarkLabel--unread,
+    .block--messages .message.message--post.hasThreadmark .message-cell--threadmark-header .primary .threadmarkLabel {
+        background: var(--sbc-headerColor);
+        color: hsla(var(--xf-textColorDimmed));
+    }
+
+    /* --- Buttons --- */
+    /* Secondary/regular */
+    .button {
+        color: black;
+        font-size: 0.813rem;
+    }
+
+    /* Reader buttons*/
+    .button.button--link,
+    a.button.button--link {
+        color: hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), clamp(0%, calc((var(--xf-buttonPrimaryBg--l) - 67%) * -100), 100%), var(--xf-buttonPrimaryBg--a));
+        background: hsla(var(--xf-buttonPrimaryBg));
+        border-color: hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) + (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a)) hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) - (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a)) hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) - (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a)) hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) + (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a));
+    }
+
+    .button.button--link:hover,
+    a.button.button--link:hover {
+        background-color: hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) - (var(--xf-color-adjust, 1) * 8%)), var(--xf-buttonPrimaryBg--a));
+    }
+
+    /* Post a new thread */
+    .button.button--cta,
+    a.button.button--cta {
+        background: hsla(var(--xf-buttonPrimaryBg));
+        ;
+        border-color: hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) + (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a)) hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) - (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a)) hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) - (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a)) hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) + (var(--xf-color-adjust, 1) * 5%)), var(--xf-buttonPrimaryBg--a));
+        ;
+        color: hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), clamp(0%, calc((var(--xf-buttonPrimaryBg--l) - 67%) * -100), 100%), var(--xf-buttonPrimaryBg--a));
+    }
+
+    .button.button--cta:not(.button--splitTrigger):hover,
+    a.button.button--cta:not(.button--splitTrigger):hover {
+        background: hsla(var(--xf-buttonPrimaryBg--h), var(--xf-buttonPrimaryBg--s), calc(var(--xf-buttonPrimaryBg--l) - (var(--xf-color-adjust, 1) * 8%)), var(--xf-buttonPrimaryBg--a));
+        ;
+    }
+
+    /* ---=== Miscellaneous fixes ===--- */
+    /* Page navigation text color */
+    .pageNav-page:not(.pageNav-page--current) a,
+    .pageNav-jump {
+        color: hsla(var(--xf-linkColor));
+    }
+
+    /* Reply form backgrounds */
+    .js-quickReply {
+        .message-cell.message-cell--user {
+            background: black;
+        }
+        .message-user {
+            border-width: 0;
+        }
+        .message-userArrow {
+            transform: rotate(0deg);
+            right: 0;
+            border-right-color: transparent;
+        }
+        .message-userArrow::after {
+            border-right-color: hsla(var(--xf-contentBg));
+        }
+
+        .fr-toolbar.fr-ltr.fr-desktop.fr-top.fr-basic {
+            background: #151a26;
+        }
+    }
+
+    /* Inline spoilers */
+    .bbc-spoiler:not(:hover):not(:active),
+    .bbc-spoiler:not(:hover):not(:active) * {
+        background-color: var(--sbc-headerColor) !important;
+    }
+
+    /* Remove/hide the account boost banner */
+    .p-header .p-header-right .button.button--cta,
+    .upgrade-banner .upgrade-text .button {
+        visibility: hidden;
+    }
+
+    /* Black header. Not a fan, honestly */
+    /* .p-header{
+    background:black;
+}
+.p-header .p-header-content {
+    border-bottom:hidden;
+} */
+}
