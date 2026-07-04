@@ -6,7 +6,7 @@ CSS Userstyles fixing SpaceBattles UI
 
 Then either:
 
-1. Install userscript from GreaseMonkey
+1. Install userscript from [GreaseMonkey](https://greasyfork.org/en/scripts/585246-spacebattles-xf2-3-ui-fix)
 
   or
 
