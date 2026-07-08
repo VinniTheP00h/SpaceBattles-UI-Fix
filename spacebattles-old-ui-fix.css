@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SpaceBattles Old Design minor fixes
 @namespace      https://github.com/VinniTheP00h/SpaceBattles-UI-Fix
-@version        1.1.0
+@version        1.1.1
 @description    Fixes a number of minor issues on SB's new recreated old theme
 @author         VinniTheP00h
 @license MIT
@@ -17,11 +17,6 @@
     .button.button--link:hover,
     a.button.button--link:hover {
         background-color: #737885;
-    }
-    
-    /* Center editor toolbar icons */
-    .fr-toolbar .fr-command.fr-btn i, .fr-popup .fr-command.fr-btn i, .fr-modal .fr-command.fr-btn i, .fr-toolbar .fr-command.fr-btn svg, .fr-popup .fr-command.fr-btn svg, .fr-modal .fr-command.fr-btn svg {
-        display: inline-block;
     }
     
     /* Remove the upgrade banner because I don't like it */
