@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           SpaceBattles XF2.3 UI fix
 @namespace      https://github.com/VinniTheP00h/SpaceBattles-UI-Fix
-@version        1.0.1
+@version        1.1.1
 @description    Fixes SpaceBattles' new UI, making it similar to the old design. Use it over the "Classic Dark" theme.
 @author         VinniTheP00h
 @license        MIT
@@ -275,6 +275,7 @@ Decide on a good value (eg 300px) and remove this section and the varable, and r
     }
 
     /* Font adjustments (make it a bit smaller) */
+    /*
     .bbWrapper,
     .message-body,
     .message-body .bbCodeBlock.bbCodeBlock-content,
@@ -286,6 +287,7 @@ Decide on a good value (eg 300px) and remove this section and the varable, and r
     .message-name {
         font-size: inherit;
     }
+    */
 
     /* Neon green links */
     /* I made the like on the right green, to bring it in line with other active elements, but left the one on the left gray as it was */

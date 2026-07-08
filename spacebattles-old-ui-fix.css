@@ -1,12 +1,13 @@
 /* ==UserStyle==
 @name           SpaceBattles Old Design minor fixes
 @namespace      https://github.com/VinniTheP00h/SpaceBattles-UI-Fix
-@version        1.0.0
+@version        1.1.0
 @description    Fixes a number of minor issues on SB's new recreated old theme
 @author         VinniTheP00h
 @license MIT
 ==/UserStyle== */
 @-moz-document url-prefix("https://forums.spacebattles.com/") {
+    /* Change button colors */
     .button.button--link,
     a.button.button--link {
         background: #60646f;
@@ -16,5 +17,15 @@
     .button.button--link:hover,
     a.button.button--link:hover {
         background-color: #737885;
+    }
+    
+    /* Center editor toolbar icons */
+    .fr-toolbar .fr-command.fr-btn i, .fr-popup .fr-command.fr-btn i, .fr-modal .fr-command.fr-btn i, .fr-toolbar .fr-command.fr-btn svg, .fr-popup .fr-command.fr-btn svg, .fr-modal .fr-command.fr-btn svg {
+        display: inline-block;
+    }
+    
+    /* Remove the upgrade banner because I don't like it */
+    .footer-section--upgrade {
+        display:none;
     }
 }
